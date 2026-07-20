@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "dalib",
+  "version": "${version}",
+  "name": "Dalib",
+  "description": "Library mod for The Unknown Group/mods needing the same capabilities.",
+  "authors": [
+    "devonk15"
+  ],
+  "contact": {},
+  "entrypoints": {
+    "main": [
+      "xyz.theunknowngroup.Dalib"
+    ]
+  },
+  "license": "MIT License",
+  "icon": "assets/dalib/icon.png",
+  "environment": "*",
+  "depends": {
+    "fabricloader": ">=${fabric_load}",
+    "minecraft": "${mc}",
+    "java": ">=${java_v}",
+    "fabric-api": "${fabric_api}"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.wiki": "http://web.thegremlinx.xyz/docs",
+        "modmenu.github_releases": "https://github.com/TheUnknownGroup/unknown-mod/releases",
+        "modmenu.modrinth": "https://modrinth.com/mod/unknown-mod",
+        "modmenu.discord": "https://discord.gg/jspNzHYTFn",
+        "modmenu.github_sponsors": "https://github.com/sponsors/devonk15"
+      },
+      "update-checker": true
+    }
+  },
+  "suggests": {
+    "dashloader": "*"
+  }
+}

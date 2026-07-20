@@ -1,0 +1,52 @@
+plugins {
+    id 'java'
+}
+
+group = project.maven_group
+version = project.u_ver
+def loader = project.loader_version
+def mc = project.mines
+//def mc = project.mines_2
+def java = project.java_ver
+def api = project.api_ver
+def u_d_ver = project.u_d_ver
+
+repositories {
+    mavenCentral()
+}
+
+base {
+    archivesName = project.u_base_name
+}
+
+dependencies {
+    modImplementation "xyz.theunknowngroup:dalib:${u_d_ver}"
+    minecraft "com.mojang:minecraft:${project.mines}"
+//    minecraft "com.mojang:minecraft:${project.mines_2}"
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = 25
+}
+
+processResources {
+    inputs.property "version", version
+
+    filesMatching("fabric.mod.json") {
+        expand "version": version,
+                "loader": loader,
+                "mcver": mc,
+                "java": java,
+                "api": api,
+                "d_ver": u_d_ver
+    }
+}
+
+jar {
+    def projectName = project.name
+    inputs.property "projectName", projectName
+
+    from("LICENSE") {
+        rename { "${it}_$projectName"}
+    }
+}

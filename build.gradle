@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id 'fabric-loom' version "${loom_version}" apply false
+    id 'com.modrinth.minotaur' version "2.+"
+}
+
+group = project.maven_group
+def loader = project.loader_version
+def api = project.api_ver
+
+subprojects {
+    apply plugin: 'fabric-loom'
+    apply plugin: 'maven-publish'
+    apply plugin: 'com.modrinth.minotaur'
+
+    java {
+        withSourcesJar()
+        sourceCompatibility = JavaVersion.VERSION_25
+        targetCompatibility = JavaVersion.VERSION_25
+    }
+
+    repositories {
+        maven { url 'https://theunknownmaven.github.io/maven/'}
+        mavenCentral()
+    }
+
+    dependencies {
+
+        mappings loom.officialMojangMappings()
+        modImplementation "net.fabricmc:fabric-loader:${loader}"
+        modImplementation "net.fabricmc.fabric-api:fabric-api:${api}"
+    }
+}
+
+

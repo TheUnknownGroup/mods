@@ -1,0 +1,56 @@
+plugins {
+    id 'java-library'
+}
+
+group = project.maven_group
+version = project.d_ver
+def les = project.loader_version
+def mc = project.mines
+def java_v = project.java_ver
+def api = project.api_ver
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.mines}"
+}
+
+processResources {
+    inputs.property "version", version
+
+    filesMatching("fabric.mod.json") {
+        expand "version": version,
+                "fabric_load": les,
+                "mc": mc,
+                "java_v": java_v,
+                "fabric_api": api
+    }
+}
+
+publishing {
+    publications {
+        create("mavenJava", MavenPublication) {
+            from components.java
+            groupId = group
+            artifactId = 'dalib'
+            version = version
+        }
+    }
+    repositories {
+        maven {
+            name = "local"
+            url = uri("${rootProject.projectDir}/build/repo")
+        }
+    }
+}
+
+jar {
+    def projectName = project.name
+    inputs.property "projectName", projectName
+
+    from("LICENSE") {
+        rename { "${it}_$projectName"}
+    }
+}
