@@ -1,15 +1,15 @@
 name: Build Dalib
 on:
-#  push:
-#    branches:
-#      - 'v*'
-#    paths:
-#      - '*.txt'
+  push:
+    branches:
+      - 'v*'
+    paths:
+      - 'dalib.txt'
   workflow_dispatch:
 
 env:
-  ver: "v0.0.0+1.21.11+b.3"
-  tag: "0.0.0+b.3"
+  ver: "v0.0.0+1.21.11+b.4"
+  tag: "0.0.0+b.4"
   java_ver: "25"
   lib: "dalib"
 

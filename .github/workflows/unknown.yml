@@ -1,10 +1,10 @@
 name: Build Unknown Mod
 on:
-  #  push:
-  #    branches:
-  #      - 'v*'
-  #    paths:
-  #      - '*.txt'
+  push:
+    branches:
+      - 'v*'
+    paths:
+      - 'unknown.txt'
   workflow_dispatch:
 
 env:

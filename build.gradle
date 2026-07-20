@@ -26,7 +26,6 @@ subprojects {
     }
 
     dependencies {
-
         mappings loom.officialMojangMappings()
         modImplementation "net.fabricmc:fabric-loader:${loader}"
         modImplementation "net.fabricmc.fabric-api:fabric-api:${api}"
