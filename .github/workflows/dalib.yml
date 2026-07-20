@@ -1,0 +1,109 @@
+name: Build Dalib
+on:
+#  push:
+#    branches:
+#      - 'v*'
+#    paths:
+#      - '*.txt'
+  workflow_dispatch:
+
+env:
+  ver: "v0.0.0+1.21.11+b.3"
+  tag: "0.0.0+b.3"
+  java_ver: "25"
+  lib: "dalib"
+
+jobs:
+  build:
+    if: ${{ !contains(github.event.head_commit.message, '[skip]' ) }}
+
+    permissions:
+      contents:
+        write
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: gradle/actions/wrapper-validation@v6
+
+      - name: setup jdk
+        uses: actions/setup-java@v5.3.0
+        with:
+          java-version: ${{ env.java_ver }}
+          distribution: 'temurin'
+
+      - run: chmod +x ./gradlew
+
+      - run: ./gradlew :dalib:build
+
+      - name: capture
+        uses: actions/upload-artifact@v7
+        with:
+          name: jars
+          path: dalib/build/libs
+
+  publish:
+    if: ${{ contains(github.event.head_commit.message, '[skip]') }}
+
+    permissions:
+      contents:
+        write
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: gradle/actions/wrapper-validation@v6
+
+      - name: setup jdk
+        uses: actions/setup-java@v5.3.0
+        with:
+          java-version: ${{ env.java_ver }}
+          distribution: 'temurin'
+
+      - name: gradlew exe & publish
+        run: |
+          chmod +x ./gradlew
+          ./gradlew :dalib:publish
+
+      - name: push
+        run: |
+          git clone https://x-access-token:${{ secrets.MAVEN_TOKEN }}@github.com/TheUnknownMaven/maven.git site
+          cp -r build/repo/* site/
+          cd site
+          git config user.name "devonk15"
+          git config user.email "94760159+devonk15@users.noreply.github.com"
+          git add .
+          git commit -m "publishing ${{ env.lib }}" || echo "Nothing to commit"
+          git push
+
+  release:
+    if: ${{ !contains(github.event.head_commit.message, '[skip]') }}
+
+    permissions:
+      contents:
+        write
+
+    needs: [ build ]
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: download
+        uses: actions/download-artifact@v8
+        with:
+          path: jars
+          merge-multiple: true
+
+      - name: create
+        uses: softprops/action-gh-releases@v3
+        with:
+          name: Dalib ${{ env.ver }}
+          tag_name: ${{ env.tag }}
+          body_path: ${{ github.workspace }}/dalib/changelog.md
+          draft: true
+          generate_release_notes: true
+          files: |
+            jars/*.jar
