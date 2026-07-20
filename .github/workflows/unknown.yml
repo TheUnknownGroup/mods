@@ -1,4 +1,4 @@
-name: Build Dalib
+name: Build Unknown Mod
 on:
   #  push:
   #    branches:
@@ -62,7 +62,7 @@ jobs:
           merge-multiple: true
 
       - name: create
-        uses: softprops/action-gh-releases@v3
+        uses: softprops/action-gh-release@v3
         with:
           name: Unknown Mod ${{ env.ver }}
           tag_name: ${{ env.tag }}
