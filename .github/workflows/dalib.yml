@@ -1,8 +1,8 @@
 name: Build Dalib
 on:
   push:
-    paths:
-      - 'dalib.txt'
+    branches:
+      - main
   workflow_dispatch:
 
 env:
@@ -13,7 +13,7 @@ env:
 
 jobs:
   build:
-    if: ${{ contains(github.event.head_commit.message, '[real]')}}
+    if: ${{ contains(github.event.head_commit.message, '[real_d]')}}
     permissions:
       contents:
         write
@@ -76,7 +76,7 @@ jobs:
           git push
 
   modrinth:
-    if: ${{ contains(github.event.head_commit.message, '[modrn]') }}
+    if: ${{ contains(github.event.head_commit.message, '[mr_u]') }}
 
     permissions:
       contents: write
