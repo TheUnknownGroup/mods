@@ -74,6 +74,31 @@ jobs:
           git commit -m "publishing ${{ env.lib }}" || echo "Nothing to commit"
           git push
 
+  modrinth:
+    if: ${{ contains( github.event.head_commit.message, '[modrn]') }}
+
+    permissions:
+      contents: write
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: gradle/actions/wrapper-validation@v6
+
+      - name: setup jdk
+        uses: actions/setup-java@v5.3.0
+        with:
+          java-version: ${{ env.java_ver }}
+          distribution: 'temurin'
+
+      - name: exe gradlew & publish to modrinth
+        env:
+          MODRINTH_TOKEN: ${{ secrets.TOKEN }}
+        run: |
+          chmod +x ./gradlew
+          ./gradlew :dalib:modrinth
+
   release:
     permissions:
       contents:
