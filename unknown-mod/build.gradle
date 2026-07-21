@@ -10,6 +10,15 @@ def java = project.java_ver
 def api = project.api_ver
 def u_d_ver = project.u_d_ver
 
+modrinth {
+    project = "7EyjyjZ4"
+    versionNumber = "${version}"
+    versionName = "Unknown Mod v${version} [${mc}-fabric]"
+    uploadFile = remapJar
+    gameVersions = ["1.21.11"]
+    changelog = file("changelog.md").text
+}
+
 repositories {
     mavenCentral()
 }

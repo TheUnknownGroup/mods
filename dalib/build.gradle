@@ -8,13 +8,23 @@ def les = project.loader_version
 def mc = project.mines
 def java_v = project.java_ver
 def api = project.api_ver
+def mr = project.mr_d_ver
+
+modrinth {
+    project = "3tciwRiH"
+    versionNumber = "${version}"
+    versionName = "Dalib v${mr} [${mc}-fabric]"
+    uploadFile = remapJar
+    gameVersions = ["1.21.11"]
+    changelog = file("changelog.md").text
+}
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    minecraft "com.mojang:minecraft:${project.mines}"
+    minecraft "com.mojang:minecraft:${mc}"
 }
 
 processResources {

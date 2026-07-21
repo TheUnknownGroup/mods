@@ -25,6 +25,14 @@ subprojects {
         mavenCentral()
     }
 
+    modrinth {
+        token = System.getenv("MODRINTH_TOKEN")
+        loaders = ['fabric']
+        dependencies {
+            required.project "fabric-api"
+        }
+    }
+
     dependencies {
         mappings loom.officialMojangMappings()
         modImplementation "net.fabricmc:fabric-loader:${loader}"
