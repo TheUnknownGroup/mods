@@ -1,0 +1,82 @@
+name: push.yml
+on:
+  push:
+    branches:
+      - 'v*'
+
+jobs:
+  dalib:
+    if: ${{ contains(github.event.head_commit.message, '[da]') }}
+
+    permissions:
+      contents: write
+
+    env:
+      pub: update [pub]
+      real: update
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: push dalib.txt
+        if: ${{ contains(github.event.head_commit.message, '[real]') }}
+        run: |
+          git config user.name "devonk15"
+          git config user.email "94760159+devonk15@users.noreply.github.com"
+          
+          echo '.' >> dalib.txt
+          
+          git add .
+          git commit -m "${{ env.real }}"
+          git push
+
+      - name: push dalib.txt (pub)
+        if: ${{ contains(github.event.head_commit.message, '[pub]') }}
+        run: |
+          git config user.name "devonk15"
+          git config user.email "94760159+devonk15@users.noreply.github.com"
+          
+          echo '.' >> dalib.txt
+          
+          git add .
+          git commit -m "${{ env.pub }}"
+          git push
+
+
+  unknown:
+    if: ${{ contains(github.event.head_commit.message, '[unk]') }}
+    permissions:
+      contents: write
+
+    env:
+      mod: update [mr]
+      real: update
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: push unknown.txt
+        if: ${{ contains(github.event.head_commit.message, '[real]') }}
+        run: |
+          git config user.name "devonk15"
+          git config user.email "94760159+devonk15@users.noreply.github.com"
+
+          echo '.' >> unknown.txt
+
+          git add .
+          git commit -m "${{ env.real }}"
+          git push
+
+      - name: push unknown.txt (mod)
+        if: ${{ contains(github.event.head_commit.message, '[mod]') }}
+        run: |
+          git config user.name "devonk15"
+          git config user.email "94760159+devonk15@users.noreply.github.com"
+
+          echo '.' >> unknown.txt
+
+          git add .
+          git commit -m "${{ env.mod }}"
+          git push

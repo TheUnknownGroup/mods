@@ -1,8 +1,6 @@
 name: Build Unknown Mod
 on:
   push:
-    branches:
-      - 'v*'
     paths:
       - 'unknown.txt'
   workflow_dispatch:
@@ -14,8 +12,6 @@ env:
 
 jobs:
   build:
-    if: ${{ !contains(github.event.head_commit.message, '[skip]' ) }}
-
     permissions:
       contents:
         write
@@ -42,9 +38,11 @@ jobs:
           name: jars
           path: unknown-mod/build/libs
 
-  release:
-    if: ${{ !contains(github.event.head_commit.message, '[skip]') }}
+#  modrinth:
+#    if: ${{ contains( github.event.head_commit.message, '[mr]') }}
+#    runs-on: ubuntu-latest
 
+  release:
     permissions:
       contents:
         write
