@@ -13,7 +13,7 @@ env:
 
 jobs:
   build:
-    if: ${{ !contains(github.event.head_commit.message, '[skip]') }}
+    if: ${{ contains(github.event.head_commit.message, '[real]')}}
     permissions:
       contents:
         write
@@ -76,7 +76,7 @@ jobs:
           git push
 
   modrinth:
-    if: ${{ contains( github.event.head_commit.message, '[modrn]') }}
+    if: ${{ contains(github.event.head_commit.message, '[modrn]') }}
 
     permissions:
       contents: write

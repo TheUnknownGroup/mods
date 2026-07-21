@@ -14,7 +14,7 @@ jobs:
     env:
       pub: update [pub]
       mod: update [modrn]
-      real: update
+      real: update [real]
 
     runs-on: ubuntu-latest
     steps:
@@ -65,7 +65,7 @@ jobs:
 
     env:
       mod: update [mr]
-      real: update
+      real: update [real]
 
     runs-on: ubuntu-latest
     steps:

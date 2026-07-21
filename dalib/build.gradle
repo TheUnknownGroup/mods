@@ -11,7 +11,7 @@ def api = project.api_ver
 def mr = project.mr_d_ver
 
 modrinth {
-    project = "3tciwRiH"
+    projectId = "3tciwRiH"
     versionNumber = "${version}"
     versionName = "Dalib v${mr} [${mc}-fabric]"
     uploadFile = remapJar
