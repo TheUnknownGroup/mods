@@ -1,8 +1,6 @@
 name: Build Unknown Mod
 on:
   push:
-    branches:
-      - main
     paths:
       - 'unknown.txt'
   workflow_dispatch:

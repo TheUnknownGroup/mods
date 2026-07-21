@@ -1,8 +1,6 @@
 name: Build Dalib
 on:
   push:
-    branches:
-      - main
     paths:
       - 'dalib.txt'
   workflow_dispatch:
