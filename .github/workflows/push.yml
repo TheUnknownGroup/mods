@@ -1,4 +1,4 @@
-name: push.yml
+name: Push *.txt for release and such
 on:
   push:
     branches:
