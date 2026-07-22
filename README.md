@@ -5,7 +5,7 @@ This is a polyrepo for the sole purrpose of being more efficient in creating / d
 This is our first mod, you can view the README on all the information about it along with other websites you can get the mod on :)
 
 ## [Dalib](https://github.com/TheUnknownGroup/mods/blob/v1.21.11/dalib/README.md)
-This is our first library mod, you can
+This is our first library mod, you can view the README for all information regarding using the library, along with adding it to your ``build.gradle``.
 
 ## Support
 [![Discord](https://img.shields.io/badge/discord_community-gray?style=for-the-badge&logo=discord&logoColor=white&color=%235865F2)](https://discord.gg/jspNzHYTFn) <br>

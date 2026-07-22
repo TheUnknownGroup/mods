@@ -41,7 +41,7 @@ public class ItemGroupR {
         this.entries1.add(entries);
         return this;
     }
-    public ItemGroupR after(ResourceKey<CreativeModeTab> other) {
+    private ItemGroupR after(ResourceKey<CreativeModeTab> other) {
         this.after = other;
         return this;
     }

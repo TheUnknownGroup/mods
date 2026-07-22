@@ -76,7 +76,7 @@ jobs:
           git push
 
   modrinth:
-    if: ${{ contains(github.event.head_commit.message, '[mr_u]') }}
+    if: ${{ contains(github.event.head_commit.message, '[mr_d]') }}
 
     permissions:
       contents: write
