@@ -6,8 +6,8 @@ on:
   workflow_dispatch:
 
 env:
-  ver: "v0.0.0+1.21.11+b.4"
-  tag: "0.0.0+b.4"
+  ver: "v0.0.0+1.21.11+b.5"
+  tag: "0.0.0+b.5"
   java_ver: "25"
   lib: "dalib"
 
