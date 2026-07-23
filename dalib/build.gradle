@@ -68,7 +68,7 @@ jar {
 }
 
 mavenPublishing {
-    publishToMavenCentral()
+    publishToMavenCentral(true)
     signAllPublications()
 
     coordinates "io.github.theunknownmaven", "dalib", "${version}"
