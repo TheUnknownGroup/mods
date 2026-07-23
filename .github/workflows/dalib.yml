@@ -71,7 +71,6 @@ jobs:
           ORG_GRADLE_PROJECT_signingInMemoryKeyId: ${{ secrets.GPG_KEY }}
           ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.GPG_PASSWORD }}
         run: ./gradlew :dalib:publishToMavenCentral
-          
 
 #      - name: push
 #        run: |
