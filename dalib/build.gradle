@@ -80,7 +80,7 @@ mavenPublishing {
         url = "https://github.com/TheUnknownGroup/mods/"
         licenses {
             license {
-                name = "MITE"
+                name = "MIT"
                 url = "https://opensource.org/licenses/MIT"
             }
         }
