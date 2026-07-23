@@ -70,7 +70,7 @@ jobs:
           ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.GPG_ARMOR }}
           ORG_GRADLE_PROJECT_signingInMemoryKeyId: ${{ secrets.GPG_KEY }}
           ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.GPG_PASSWORD }}
-        run: ./gradlew publishAndReleaseToMavenCentral
+        run: ./gradlew :dalib:publishAndReleaseToMavenCentral
           
 
 #      - name: push

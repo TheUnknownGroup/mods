@@ -29,7 +29,7 @@ base {
 }
 
 dependencies {
-    modImplementation "xyz.theunknowngroup:dalib:${u_d_ver}"
+    modImplementation "io.github.theunknowngroup:dalib:${u_d_ver}"
     minecraft "com.mojang:minecraft:${project.mines}"
 }
 
