@@ -14,6 +14,7 @@ modrinth {
     projectId = "7EyjyjZ4"
     versionNumber = "${version}"
     versionName = "Unknown Mod v${version} [${mc}-fabric]"
+    versionType = "release"
     uploadFile = remapJar
     gameVersions = ["1.21.11"]
     changelog = file("changelog.md").text

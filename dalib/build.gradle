@@ -1,5 +1,6 @@
 plugins {
     id 'java-library'
+    id 'com.vanniktech.maven.publish' version '0.37.0'
 }
 
 group = project.maven_group
@@ -14,6 +15,7 @@ modrinth {
     projectId = "3tciwRiH"
     versionNumber = "${version}"
     versionName = "Dalib v${mr} [${mc}-fabric]"
+    versionType = "beta"
     uploadFile = remapJar
     gameVersions = ["1.21.11"]
     changelog = file("changelog.md").text
@@ -62,5 +64,37 @@ jar {
 
     from("LICENSE") {
         rename { "${it}_$projectName"}
+    }
+}
+
+mavenPublishing {
+    publishToMavenCentral()
+    signAllPublications()
+
+    coordinates "io.github.theunknownmaven", "dalib", "${version}"
+
+    pom {
+        name = "Dalib"
+        description = "A library made for any mod made by the UnknownGroup."
+        inceptionYear = "2026"
+        url = "https://github.com/TheUnknownGroup/mods/"
+        licenses {
+            license {
+                name = "MITE"
+                url = "https://opensource.org/licenses/MIT"
+            }
+        }
+        developers {
+            developer {
+                id = "devonk15"
+                name = "devonk15"
+                url = "https://github.com/devonk15"
+            }
+        }
+        scm {
+            connection = "scm:git:git://github.com/TheUnknownGroup/mods.git"
+            developerConnection = "scm:git:ssh://github.com/TheUnknownGroup/mods.git"
+            url = "https://github.com/TheUnknownGroup/mods/"
+        }
     }
 }

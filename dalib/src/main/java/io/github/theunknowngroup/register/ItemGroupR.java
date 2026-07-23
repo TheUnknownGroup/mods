@@ -1,4 +1,4 @@
-package xyz.theunknowngroup.register;
+package io.github.theunknowngroup.register;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.core.Registry;

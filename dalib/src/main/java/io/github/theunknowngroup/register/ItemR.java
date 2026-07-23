@@ -1,4 +1,4 @@
-package xyz.theunknowngroup.register;
+package io.github.theunknowngroup.register;
 
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
