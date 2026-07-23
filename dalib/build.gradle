@@ -67,6 +67,10 @@ jar {
     }
 }
 
+tasks.withType(PublishToMavenRepository).configureEach {
+    dependsOn tasks.withType(Sign)
+}
+
 mavenPublishing {
     publishToMavenCentral(true)
     signAllPublications()

@@ -59,9 +59,8 @@ jobs:
           java-version: ${{ env.java_ver }}
           distribution: 'temurin'
 
-      - name: gradlew exe & publish
-        run: |
-          chmod +x ./gradlew
+      - name: setup gradle
+        uses: gradle/actions/setup-gradle@v3
 
       - name: maven central
         env:
@@ -70,7 +69,7 @@ jobs:
           ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.GPG_ARMOR }}
           ORG_GRADLE_PROJECT_signingInMemoryKeyId: ${{ secrets.GPG_KEY }}
           ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.GPG_PASSWORD }}
-        run: ./gradlew :dalib:publishToMavenCentral
+        run: ./gradlew :dalib:publishToMavenCentral --no-daemon
 
 #      - name: push
 #        run: |
