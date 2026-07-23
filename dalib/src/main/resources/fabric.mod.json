@@ -10,7 +10,7 @@
   "contact": {},
   "entrypoints": {
     "main": [
-      "io.github.theunknowngroup.Dalib"
+      "xyz.theunknowngroup.Dalib"
     ]
   },
   "license": "MIT License",

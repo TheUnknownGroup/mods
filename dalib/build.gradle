@@ -21,10 +21,6 @@ modrinth {
     changelog = file("changelog.md").text
 }
 
-repositories {
-    mavenCentral()
-}
-
 dependencies {
     minecraft "com.mojang:minecraft:${mc}"
 }

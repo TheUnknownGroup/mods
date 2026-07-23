@@ -1,14 +1,14 @@
-package io.github.theunknowngroup.block;
+package xyz.theunknowngroup.block;
 
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import io.github.theunknowngroup.register.BlockR;
+import xyz.theunknowngroup.register.BlockR;
 
 import static com.mojang.text2speech.Narrator.LOGGER;
-import static io.github.theunknowngroup.UnknownMod.MOD_ID;
-import static io.github.theunknowngroup.UnknownMod.MOD_NAME;
+import static xyz.theunknowngroup.UnknownMod.MOD_ID;
+import static xyz.theunknowngroup.UnknownMod.MOD_NAME;
 
 public class ModBlocks {
     public static final Block UNKNOWN_BLOCK = BlockR.registerBlock(MOD_ID,

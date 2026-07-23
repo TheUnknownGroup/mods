@@ -12,15 +12,13 @@ In your `build.gradle` write:
 ```groovy
 // Under dependencies
 dependencies {
-    modImplementation("xyz.theunknowngroup:dalib:{version}")
-    /* include("xyz.theunknowngroup:dalib:{version}") ; If you choose*/
+    modImplementation("io.github.theunknownmaven:dalib:{version}")
+    /* include("io.github.theunknownmaven:dalib:{version}") ; If you choose */
 }
 
-// Under repositories 
+// Under repositories
 repositories {
-    maven {
-        url = 'https://theunknownmaven.github.io/maven/'
-    }
+    mavenCentral()
 }
 ```
 
@@ -30,7 +28,7 @@ You can use the tags on [github](https://github.com/TheUnknownGroup/Dalib/tags) 
 ```groovy
 /* For example: */
 dependencies {
-    modImplementation("xyz.theunknowngroup:dalib:0.0.0+1.21.11+b.3")
-    /* include("xyz.theunknowngroup:dalib:0.0.0+1.21.11+b.3") ; If you choose*/
+    modImplementation("io.github.theunknownmaven:dalib:0.0.0+1.21.11+b.3")
+    /* include("io.github.theunknownmaven:dalib:0.0.0+1.21.11+b.3") ; If you choose*/
 }
 ```

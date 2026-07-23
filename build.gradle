@@ -21,7 +21,6 @@ subprojects {
     }
 
     repositories {
-        maven { url 'https://theunknownmaven.github.io/maven/'}
         mavenCentral()
     }
 

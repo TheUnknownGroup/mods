@@ -1,14 +1,14 @@
-package io.github.theunknowngroup.item;
+package xyz.theunknowngroup.item;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import io.github.theunknowngroup.block.ModBlocks;
-import io.github.theunknowngroup.register.ItemGroupR;
+import xyz.theunknowngroup.block.ModBlocks;
+import xyz.theunknowngroup.register.ItemGroupR;
 
 import static com.mojang.text2speech.Narrator.LOGGER;
-import static io.github.theunknowngroup.UnknownMod.MOD_ID;
-import static io.github.theunknowngroup.UnknownMod.MOD_NAME;
+import static xyz.theunknowngroup.UnknownMod.MOD_ID;
+import static xyz.theunknowngroup.UnknownMod.MOD_NAME;
 
 public class ModItemGroups {
     public static final CreativeModeTab UNKNOWN = ItemGroupR.builder(MOD_ID, "unknown")

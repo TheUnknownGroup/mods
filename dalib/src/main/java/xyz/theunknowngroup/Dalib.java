@@ -1,4 +1,4 @@
-package io.github.theunknowngroup;
+package xyz.theunknowngroup;
 
 import net.fabricmc.api.ModInitializer;
 

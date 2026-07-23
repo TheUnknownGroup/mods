@@ -16,7 +16,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "io.github.theunknowngroup.UnknownMod"
+      "xyz.theunknowngroup.UnknownMod"
     ]
   },
   "depends": {
