@@ -63,13 +63,8 @@ jobs:
         uses: gradle/actions/setup-gradle@v3
 
       - name: maven central
-        env:
-          ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.MAVEN_USER }}
-          ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.MAVEN_PASS }}
-          ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.GPG_ARMOR }}
-          ORG_GRADLE_PROJECT_signingInMemoryKeyId: ${{ secrets.GPG_KEY }}
-          ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.GPG_PASSWORD }}
-        run: ./gradlew :dalib:publishToMavenCentral --no-daemon
+        run:
+          ./gradlew :dalib:publishToMavenCentral -PmavenCentralUsername="${{ secrets.MAVEN_USER }}" -PmavenCentralPassword="${{ secrets.MAVEN_PASS }}" -PsigningInMemoryKey="${{ secrets.GPG_ARMOR }}" -PsigningInMemoryKeyPassword="${{ secrets.GPG_PASSWORD }}"
 
 #      - name: push
 #        run: |
