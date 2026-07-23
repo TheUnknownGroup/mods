@@ -62,7 +62,6 @@ jobs:
       - name: gradlew exe & publish
         run: |
           chmod +x ./gradlew
-          ./gradlew :dalib:publish
 
       - name: maven central
         env:
